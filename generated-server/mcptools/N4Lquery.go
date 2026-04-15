@@ -41,6 +41,7 @@ const N4LqueryInputSchema = `{
 }`
 
 // Response Template for the N4Lquery tool (Status: 200, Content-Type: application/json)
+
 const N4LqueryResponseTemplate_A = `# API Response Information
 
 Below is the response template for this API endpoint.
@@ -241,6 +242,7 @@ The template shows a possible response, including its status code and content ty
 `
 
 // NewN4LqueryMCPTool creates the MCP Tool instance for N4Lquery
+
 func NewN4LqueryMCPTool() mcp.Tool {
 	return mcp.NewToolWithRawSchema(
 		"N4Lquery",
@@ -253,6 +255,7 @@ func NewN4LqueryMCPTool() mcp.Tool {
 // This function is automatically generated. Users should implement the actual
 // logic within this function body to integrate with backend APIs.
 // You can generate types, http client and helpers for parsing request params to facilitate the implementation.
+
 func N4LqueryHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 
 	// IMPORTANT: Replace the following placeholder implementation with your actual logic.
@@ -264,5 +267,13 @@ func N4LqueryHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.Cal
 	// Extract the parameters from the request and parse them.
 	// Call your backend API or perform the necessary operations using 'params'.
 	// Handle the response and errors accordingly.
+
+
+	//  WHAT DO WE ADD HERE????    \search "string" \chapter one \context friendly ... hints
+	//  Need to pass this to http://webserver:8080/searchN4L 
+
+	
 	return nil, fmt.Errorf("%s not implemented", "N4Lquery")
 }
+
+
