@@ -1,17 +1,14 @@
 
-# Trying to build an MCP to SST proxy
+# An MCP to SST proxy
 
-There are conflicting versions, muddled together by LLM online, but this finally compiles
-
+This is a separate repo for the MCP server interface to the [SSTorytime](https://github.com/markburgess/SSTorytime) project.
+You can ask Claude to interact with the knowledge store.
 <pre>
 git clone https://github.com/markburgess/MCP-SST
 cd MCP-SST
 make
 </pre>
-
-This should build
-
-The server needs to be run from the same bin directory as the SSTorytime
+The server either needs to be run from the same bin directory as the SSTorytime
 <pre>
   bin/http_server
 </pre>
