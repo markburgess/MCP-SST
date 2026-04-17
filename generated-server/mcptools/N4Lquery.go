@@ -169,11 +169,7 @@ const N4LqueryInputSchema = `{
         },
         "name": {
 
-   // BEGIN LONG HELP TEXT ******************************************************
-
-          "description": "` + help_hint_text + `",
-
-   // END LONG HELP TEXT ******************************************************
+            "description": "` + help_hint_text + `",
 
           "type": "string"
         },
@@ -465,11 +461,10 @@ func N4LqueryHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.Cal
 		if body == nil {
 			return nil, fmt.Errorf("%s upstream unreachable", "N4Lquery")
 		}
+	} else {
+		defer resp.Body.Close()
+		body, _ = io.ReadAll(resp.Body)
 	}
-	
-	defer resp.Body.Close()
-	
-	body, _ = io.ReadAll(resp.Body)
 	
 	/* type CallToolResult struct {
                  Content []Content `json:"content"`
