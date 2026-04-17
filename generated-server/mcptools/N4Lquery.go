@@ -9,6 +9,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"os"
+	"encoding/json"
 	"github.com/mark3labs/mcp-go/mcp"
 )
 
@@ -399,12 +400,17 @@ The template shows a possible response, including its status code and content ty
 
 func NewN4LqueryMCPTool() mcp.Tool {
 
+	schema, err := json.Marshal(N4LqueryInputSchema)
 
+	if err != nil {
+		fmt.Printf("N4Lquery: failed to marshal help text: %v", err)
+		os.Exit(-1)
+	}
 	
 	return mcp.NewToolWithRawSchema(
 		"N4Lquery",
 		"Interpret search command",
-		[]byte(N4LqueryInputSchema),
+		schema,
 	)
 }
 
