@@ -1,3 +1,3 @@
 
 all:
-	go build -o bin/main cmd/server/main.go
+	go build -o bin/mcp2sst cmd/server/mcp2sst.go
