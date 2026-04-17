@@ -9,31 +9,10 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"os"
-	"flag"
 	"github.com/mark3labs/mcp-go/mcp"
 )
 
-
-// ******************************************************************************
-
-func Init() string {
-
-	flag.Usage = Usage
-
-	resourcePtr := flag.String("cert", "../server/cert.pem", "self-signed certicate path/name")
-
-	flag.Parse()
-
-	return *resourcePtr
-}
-
-//**************************************************************
-
-func Usage() {
-
-	fmt.Printf("usage: main [-cert path/to/https-cert]\n")
-	os.Exit(1)
-}
+var SELF_SIGNED_CERT string
 
 // ******************************************************************************
 // Input Schema for the N4Lquery tool - this is where we have to add tooltips
@@ -511,13 +490,11 @@ func SelfSignedForm(uri,query string,formdata url.Values) []byte {
 	
 	// curl -Iv https://127.0.0.1:8443 --cacert cert.pem
 
-	var self_signed_certificate = Init()
-
-	fmt.Println("Reading a self-signed certificate",self_signed_certificate)
-	caCert, err := os.ReadFile(self_signed_certificate)
+	fmt.Println("Reading a self-signed certificate",SELF_SIGNED_CERT)
+	caCert, err := os.ReadFile(SELF_SIGNED_CERT)
 	
 	if err != nil {
-		fmt.Println("Couldn't load server's self-signed certificate file",self_signed_certificate,err)
+		fmt.Println("Couldn't load server's self-signed certificate file",SELF_SIGNED_CERT,err)
 		return nil
 	}
 	

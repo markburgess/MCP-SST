@@ -15,4 +15,8 @@ The server needs to be run from the same bin directory as the SSTorytime
 <pre>
   bin/http_server
 </pre>
-because it needs to find the server HTTPS certificate
+else specify the self-signed certificate file with
+<pre>
+bin/main -cert path/to/cert.pem
+
+</pre>
