@@ -474,8 +474,6 @@ func N4LqueryHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.Cal
 	return &mcp.CallToolResult{
 		Content: []mcp.Content{mcp.NewTextContent(string(body))},
 	}, nil
-
-	return nil, fmt.Errorf("%s not implemented", "N4Lquery")
 }
 
 
