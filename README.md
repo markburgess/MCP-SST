@@ -14,7 +14,7 @@ The server either needs to be run from the same bin directory as the SSTorytime
 </pre>
 else specify the self-signed certificate file with
 <pre>
-bin/main -cert path/to/cert.pem
+bin/mcp2sst -cert path/to/cert.pem
 </pre>
 Start both the SSTorytime `http_server` and the bin/mcp2sst server and
 use through Claude or other LLM service, etc.
